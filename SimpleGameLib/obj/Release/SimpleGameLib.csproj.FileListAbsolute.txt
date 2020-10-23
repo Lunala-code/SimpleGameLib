@@ -1,0 +1,7 @@
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\bin\Release\SimpleGameLib.xml
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\bin\Release\SimpleGameLib.dll
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\bin\Release\SimpleGameLib.pdb
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\obj\Release\SimpleGameLib.csprojAssemblyReference.cache
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\obj\Release\SimpleGameLib.csproj.CoreCompileInputs.cache
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\obj\Release\SimpleGameLib.dll
+D:\Bureau\Info\Script info\libC#\SimpleGameLib\SimpleGameLib\obj\Release\SimpleGameLib.pdb

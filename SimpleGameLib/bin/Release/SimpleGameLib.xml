@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleGameLib</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleGameLib.Item.Item">
+            <summary>
+            Interface de création d'un Item
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Item.Item.getDescription">
+            <summary>
+            Affiche sur la sortie console la decription de l'item
+            </summary>
+        </member>
+        <member name="T:SimpleGameLib.Item.Potion.Potion">
+            <summary>
+            Classe absraite permettant de créer des potions.
+            Un potion peut être bu et rendra alors une quantité rendu d'un certains paramètre du personnage qui bois la potion
+            </summary>
+        </member>
+        <member name="F:SimpleGameLib.Item.Potion.Potion.rendu">
+            <summary>
+            Quantité rendu par la potion
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.Potion.#ctor(System.Int32)">
+            <summary>
+            Initialisation de la potion
+            </summary>
+            <param name="r"> quantité que rendra la potion </param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.Potion.applyEffect(SimpleGameLib.Player)">
+            <summary>
+            applique l'effet de la potion
+            </summary>
+            <param name="player"></param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.Potion.getPotionType">
+            <summary>
+            Retourne le type de potion
+            Soin/Force/Résistance etc...
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.Potion.getDescription">
+            <summary>
+            Affiche les paramètres de la potion sur la sortie console
+            </summary>
+        </member>
+        <member name="T:SimpleGameLib.Item.Potion.PotionForce">
+            <summary>
+            Potion de force
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionForce.#ctor(System.Int32)">
+            <summary>
+            Constructeur de la potion de force
+            </summary>
+            <param name="fr">Force que rendra la potion</param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionForce.applyEffect(SimpleGameLib.Player)">
+            <summary>
+            Rends de la force au joueur
+            </summary>
+            <param name="player">Joueur qui boit la potion</param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionForce.getPotionType">
+            <summary>
+            Donne le type de potion, ici Force
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:SimpleGameLib.Item.Potion.PotionSoin">
+            <summary>
+            Potion de soin
+            Un potion de soin rends des PV au joueurs
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionSoin.#ctor(System.Int32)">
+            <summary>
+            Constructeur de la potion de soin
+            </summary>
+            <param name="pr">Point de vie rendu par la potion</param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionSoin.applyEffect(SimpleGameLib.Player)">
+            <summary>
+            Rends des PV au joueurs
+            </summary>
+            <param name="player">Joueur qui bois la potion</param>
+        </member>
+        <member name="M:SimpleGameLib.Item.Potion.PotionSoin.getPotionType">
+            <summary>
+            Donne le type de potion, ici Soin
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:SimpleGameLib.Monstre.AMonstre">
+            <summary>
+            Classe abstraite pour configurer les Monstres
+            </summary>
+        </member>
+        <member name="F:SimpleGameLib.Monstre.AMonstre.pv">
+            <summary>
+            Point de vie des monstres, 100 par défauts
+            </summary>
+        </member>
+        <member name="F:SimpleGameLib.Monstre.AMonstre.force">
+            <summary>
+            Force du monstres, Aucune valeur par défauts
+            La valeur change en fonction du type de monstre
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.#ctor(System.Int32)">
+            <summary>
+            Constructeur d'un monstre basique
+            </summary>
+            <param name="f">force du monstre</param>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.Attack(SimpleGameLib.Player)">
+            <summary>
+            Attaque un joueur
+            Dans tous les cas, le joueur prends un coup.
+            Des effets peuvent être rajouter suivant le monstre
+            </summary>
+            <param name="player">Joueur à attaquer</param>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.getMonsterType">
+            <summary>
+            Returne le type de monstre
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.takeHit(System.Int32)">
+            <summary>
+            Le monstre reçoit un coup
+            En prennant un coup, sa vie va baisser
+            </summary>
+            <param name="deg">degat pris par le monstre</param>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.defend">
+            <summary>
+            Permet au monstre de se positionner en mode défense
+            Le mode défense divise par 2 les dégat de la prochaine attaque subit
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.isAlive">
+            <summary>
+            Permets de savoir si le monstre est en vie ou pas
+            </summary>
+            <returns>bool</returns>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.AMonstre.getDescription">
+            <summary>
+            Affiche le type, les PV et la force du monstre sur la console
+            </summary>
+        </member>
+        <member name="T:SimpleGameLib.Monstre.Gobelin">
+            <summary>
+            Classe gobelin
+            Le gobelin n'a pas un grande force mais sa force augmente a chaque tour pour un maximum de 20
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Gobelin.#ctor">
+            <summary>
+            Constructeur d'un gobelin
+            Force de base : 10
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Gobelin.Attack(SimpleGameLib.Player)">
+            <summary>
+            Attaque un joueur
+            A chaque attaque, sa force augmente de 1
+            Sa force augmente tant qu'elle est inférieur à 20
+            </summary>
+            <param name="player">Joueur attaquer</param>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Gobelin.getMonsterType">
+            <summary>
+            Retourne Gobelin
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:SimpleGameLib.Monstre.Orc">
+            <summary>
+            Classe Orc
+            L'orc est très fort mais perds un peu de vie à chaque coup
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Orc.#ctor">
+            <summary>
+            Constructeur de Orc
+            Force de base : 30
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Orc.Attack(SimpleGameLib.Player)">
+            <summary>
+            Attaque un joueur
+            A chaque attaque, l'orc perds 5 points de vie
+            </summary>
+            <param name="player">Joueur attaqué</param>
+        </member>
+        <member name="M:SimpleGameLib.Monstre.Orc.getMonsterType">
+            <summary>
+            Retourne Orc
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:SimpleGameLib.Player">
+            <summary>
+            Classe permettant de modéliser un joueur
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Player.#ctor(System.String)">
+            <summary>
+            Constructeur de Player
+            Force de base : 20
+            PV de base : 100
+            </summary>
+            <param name="name">Nom du joueur</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.getDescription">
+            <summary>
+            Affiche le nom et les caractéristiques du joueurs sur la console
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Player.addPv(System.Int32)">
+            <summary>
+            Ajoute des PV au joueur
+            </summary>
+            <param name="pv">nombre de PV à ajouter</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.addForce(System.Int32)">
+            <summary>
+            Ajoute de la force au joueur
+            </summary>
+            <param name="f">nombre de point de force à ajouter</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.takeHit(System.Int32)">
+            <summary>
+            Le joueur prends un coup qui vas faire baisser ses PV
+            </summary>
+            <param name="deg">dégat recut</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.drinkPotion(SimpleGameLib.Item.Potion.Potion)">
+            <summary>
+            Permets de boire une potion
+            </summary>
+            <param name="potion">Potion à boire</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.NormalAttack(SimpleGameLib.Monstre.AMonstre)">
+            <summary>
+            Attaque normale
+            </summary>
+            <param name="monstre">Monstre a attaqué</param>
+        </member>
+        <member name="M:SimpleGameLib.Player.defend">
+            <summary>
+            Se mets en position défensive
+            En position défensive, les dégat recut lors de la prochaine attaque son diviser par 2
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.Player.isAlive">
+            <summary>
+            Permet de savoir si le joueur est encore vivant
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SimpleGameLib.UICommon.CommonUI">
+            <summary>
+            Mets en place des outils pour améliorer l'affichage en console
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.UICommon.CommonUI.waitForKey(System.String,System.ConsoleKey)">
+            <summary>
+            Permet d'attendre l'appuie de l'utilisateur sur une touche
+            </summary>
+            <param name="msg">Message affiché pour informé l'utilisateur\n
+            Par défaut: Press Enter to continue</param>
+            <param name="key">Touche sur laquelle il faut appuyer\n
+            Par défaut: ConsoleKey.Enter</param>
+        </member>
+        <member name="M:SimpleGameLib.UICommon.CommonUI.clearScreen">
+            <summary>
+            Efface les messages écrit sur la console
+            </summary>
+        </member>
+        <member name="M:SimpleGameLib.UICommon.CommonUI.IntervalInput(System.Int32,System.Int32)">
+            <summary>
+            Permet de saisir une valeur comprise entre deux valeurs
+            </summary>
+            <param name="min">Borne minimale de l'intervalle</param>
+            <param name="max">Borne maximale de l'intervalle</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
